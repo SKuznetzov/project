@@ -3,9 +3,12 @@ import './item-filter.css';
 const ItemFilter = ()=>{
   return (
     <div className="btn-group">
-        <button className ="btn btn-primary">All</button>
-        <button className ="btn btn-primary">Active</button>
-        <button className ="btn btn-primary">Done</button>
+        <button type="button" 
+                className ="btn btn-info">All</button>
+        <button type="button" 
+                className ="btn btn-outline-secondary">Active</button>
+        <button type="button" 
+                className ="btn btn-outline-secondary">Done</button>
     </div>
   );
 };
