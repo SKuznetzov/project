@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import TodoList from '../todo-list/todo-list.js';
 import Header from '../header/header.js';
+import SearchPanel from '../search-panel/search-panel.js';
+import ItemFilter from '../item-filter/item-filter.js';
+
 import './app.css';
 
 
@@ -17,6 +20,8 @@ class App extends Component {
   return (
     <div className="todo-app">
         <Header />
+        <SearchPanel />
+        <ItemFilter />
         <TodoList todoData={todoData} />
        
     </div>
