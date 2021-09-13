@@ -1,8 +1,9 @@
 import React from 'react';
 import './todo-list-item.css';
-const TodoListItem = ({...item})=>{
+class TodoListItem extends React.Component {
 
-  
+  render(){
+    const {...item} = this.props;
   return (
     <div className="todo-list-item">
         {item.label}
@@ -18,6 +19,6 @@ const TodoListItem = ({...item})=>{
          
     </div>
   )
-   
+  }
 }
 export default TodoListItem;

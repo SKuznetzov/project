@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import TodoList from '../todo-list/todo-list.js';
-import Header from '../header/header.js';
-import SearchPanel from '../search-panel/search-panel.js';
-import ItemFilter from '../item-filter/item-filter.js';
+import TodoList from '../todo-list';
+import Header from '../header';
+import SearchPanel from '../search-panel';
+import ItemFilter from '../item-filter';
 
 import './app.css';
 
