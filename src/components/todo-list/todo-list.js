@@ -6,12 +6,15 @@ import TodoListItem from '../todo-list-item';
 class TodoList extends Component{
  
   render() {
+    const {todoData,onDeleted} = this.props;
   // const {label,important,id} = this.props;
   return (
     <ul className="list-group todo-list">
      {
-        this.props.todoData.map((item,id)=>{
-           return <TodoListItem key={id} {...item} >{item.label}</TodoListItem>
+        todoData.map((item,id)=>{
+           return <TodoListItem key={id} 
+                                {...item} 
+                                onDeleted={()=>onDeleted(id)}>{item.label}</TodoListItem>
          })
      }
     </ul>)

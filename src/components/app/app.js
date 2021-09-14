@@ -14,6 +14,13 @@ class App extends Component {
     {label: 'задача 2',important: true,id: 2},
     {label: 'задача 3',important: false,id: 3}
   ]};
+  deleteItem = (id)=>{
+    this.setState(({todoData})=>{
+      const idx = todoData.findIndex((el)=>el.id ===id)
+      const newArr = [...todoData.slice(0,idx),...todoData.slice(idx+1)]
+      return {todoData: newArr}
+    });
+  };
   
   render() {
     const {todoData} = this.state;
@@ -22,7 +29,8 @@ class App extends Component {
         <Header />
         <SearchPanel />
         <ItemFilter />
-        <TodoList todoData={todoData} />
+        <TodoList todoData={todoData}
+                  onDeleted={this.deleteItem} />
        
     </div>
   );
