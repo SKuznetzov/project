@@ -11,10 +11,11 @@ class TodoList extends Component{
   return (
     <ul className="list-group todo-list">
      {
-        todoData.map((item,id)=>{
+        todoData.map((item)=>{
+          const {id,...itemProps} = item;
            return <TodoListItem key={id} 
-                                {...item} 
-                                onDeleted={()=>onDeleted(id)}>{item.label}</TodoListItem>
+                                {...itemProps} 
+                                onDeleted={()=>onDeleted(id)}>{item}</TodoListItem>
          })
      }
     </ul>)
