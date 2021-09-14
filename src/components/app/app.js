@@ -3,7 +3,7 @@ import TodoList from '../todo-list';
 import Header from '../header';
 import SearchPanel from '../search-panel';
 import ItemFilter from '../item-filter';
-
+import FormAddItem from '../form-add-item'
 import './app.css';
 
 
@@ -31,6 +31,7 @@ class App extends Component {
         <ItemFilter />
         <TodoList todoData={todoData}
                   onDeleted={this.deleteItem} />
+        <FormAddItem />
        
     </div>
   );
