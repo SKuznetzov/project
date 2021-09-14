@@ -13,8 +13,10 @@ class TodoListItem extends React.Component {
     });
   };
   onImportant = ()=>{
-    this.setState({
-      important: true
+    this.setState((state)=>{
+      return {
+      important: !state.important
+      };
     });
   };
 
