@@ -4,7 +4,8 @@ export default class FormAddItem extends Component {
     render() {
         return (
             <div className="form-add-item">
-                <button>Add Item</button>
+                <input type="text" placeholder="поставить задачу" />
+                <button className="btn btn-outline-secondary">Add Item</button>
             </div>
         )
     }
