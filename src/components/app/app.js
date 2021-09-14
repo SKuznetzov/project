@@ -9,6 +9,7 @@ import './app.css';
 
 class App extends Component {
 
+  maxId = 100;
   state = {todoData: [
     {label: 'задача 1',important: false,id: 1},
     {label: 'задача 2',important: true,id: 2},
@@ -22,6 +23,17 @@ class App extends Component {
     });
   };
   
+  addItem = (text)=>{
+    const newItem = {
+      label: text,
+      important: false,
+      id: this.maxId++
+    }
+    this.setState(({todoData})=>{
+      const newArr = [...todoData,newItem];
+      return {todoData:newArr}
+    });
+  };
   render() {
     const {todoData} = this.state;
   return (
@@ -31,7 +43,7 @@ class App extends Component {
         <ItemFilter />
         <TodoList todoData={todoData}
                   onDeleted={this.deleteItem} />
-        <FormAddItem />
+        <FormAddItem onItemAdd={this.addItem}/>
        
     </div>
   );

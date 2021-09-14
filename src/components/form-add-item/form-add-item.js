@@ -5,7 +5,8 @@ export default class FormAddItem extends Component {
         return (
             <div className="form-add-item">
                 <input type="text" placeholder="поставить задачу" />
-                <button className="btn btn-outline-secondary">Add Item</button>
+                <button className="btn btn-outline-secondary"
+                onClick={()=>this.props.onItemAdd('hello')}>Add Item</button>
             </div>
         )
     }
