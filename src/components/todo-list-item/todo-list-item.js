@@ -8,8 +8,10 @@ class TodoListItem extends React.Component {
   };
 
   onLabelClick = ()=>{
-    this.setState({
-      done: true
+    this.setState(({done})=>{
+      return {
+      done: !done
+      }
     });
   };
   onImportant = ()=>{
