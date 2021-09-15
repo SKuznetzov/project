@@ -69,7 +69,7 @@ class App extends Component {
     const todoCount = todoData.length - doneCount;
   return (
     <div className="todo-app">
-        <Header toDo={todoCount} done= {doneCount}/>
+        <Header todo={todoCount} done= {doneCount}/>
         <SearchPanel />
         <ItemFilter />
         <TodoList todoData={todoData}
