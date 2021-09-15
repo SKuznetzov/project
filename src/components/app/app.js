@@ -57,9 +57,11 @@ class App extends Component {
   }
   render() {
     const {todoData} = this.state;
+    const doneCount = todoData.filter((el)=>el.done).length;
+    const todoCount = todoData.length - doneCount;
   return (
     <div className="todo-app">
-        <Header />
+        <Header toDo={todoCount} done= {doneCount}/>
         <SearchPanel />
         <ItemFilter />
         <TodoList todoData={todoData}
