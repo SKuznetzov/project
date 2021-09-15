@@ -10,11 +10,21 @@ import './app.css';
 class App extends Component {
 
   maxId = 100;
-  state = {todoData: [
-    {label: 'задача 1',important: false,id: 1},
-    {label: 'задача 2',important: true,id: 2},
-    {label: 'задача 3',important: false,id: 3}
+  state = {
+    todoData: [
+      this.createTodoItem('задание 1'),
+      this.createTodoItem('задание 2'),
+      this.createTodoItem('задание 3')
   ]};
+
+  createTodoItem = (label)=>{
+    return {
+      label,
+      important: false,
+      done: false,
+      id: this.maxId++
+    }
+  }
   deleteItem = (id)=>{
     this.setState(({todoData})=>{
       const idx = todoData.findIndex((el)=>el.id ===id)
@@ -24,11 +34,7 @@ class App extends Component {
   };
   
   addItem = (text)=>{
-    const newItem = {
-      label: text,
-      important: false,
-      id: this.maxId++
-    }
+    const newItem = this.createTodoItem(text);
     this.setState(({todoData})=>{
       const newArr = [...todoData,newItem];
       return {todoData:newArr}
