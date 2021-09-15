@@ -17,13 +17,13 @@ class App extends Component {
       this.createTodoItem('задание 3')
   ]};
 
-  createTodoItem = (label)=>{
-    return {
+  createTodoItem(label){
+     return {
       label,
       important: false,
       done: false,
       id: this.maxId++
-    }
+     }
   }
   deleteItem = (id)=>{
     this.setState(({todoData})=>{
