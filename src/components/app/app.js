@@ -15,7 +15,7 @@ class App extends Component {
       this.createTodoItem('задание 1'),
       this.createTodoItem('задание 2'),
       this.createTodoItem('задание 3')
-  ],term};
+  ],term: ''};
 
   createTodoItem(label){
      return {
