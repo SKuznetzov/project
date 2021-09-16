@@ -15,7 +15,7 @@ class App extends Component {
       this.createTodoItem('задание 1'),
       this.createTodoItem('задание 2'),
       this.createTodoItem('задание 3')
-  ]};
+  ],term};
 
   createTodoItem(label){
      return {
@@ -63,20 +63,32 @@ class App extends Component {
       };
     });
   };
+  onSearchChange = (term)=>{
+    this.setState({term});
+  };
+  search(items,term){
+    if (term.length === 0){
+      return items 
+    }
+      return items.filter((item)=>{
+        return item.label.toLowerCase().indexOf(term.toLowerCase()) > -1
+      });
+    }
   render() {
-    const {todoData} = this.state;
+    const {todoData,term} = this.state;
     const doneCount = todoData.filter((el)=>el.done).length;
     const todoCount = todoData.length - doneCount;
+    const visibleItems = this.search(todoData,term);
   return (
     <div className="todo-app">
-        <Header todo={todoCount} done= {doneCount}/>
-        <SearchPanel />
+        <Header todo={todoCount} done= {doneCount} />
+        <SearchPanel onSearchChange={this.onSearchChange} />
         <ItemFilter />
-        <TodoList todoData={todoData}
+        <TodoList todoData={visibleItems}
                   onDeleted={this.deleteItem}
                   onToggleImportant={this.onToggleImportant}
                   onToggleDone={this.onToggleDone} />
-        <FormAddItem onItemAdd={this.addItem}/>
+        <FormAddItem onItemAdd={this.addItem} />
        
     </div>
   );
