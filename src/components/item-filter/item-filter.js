@@ -8,10 +8,13 @@ class ItemFilter extends Component{
 
   ];
   render(){
+    const {filter} = this.props;
     const buttons = this.buttons.map(({name,label})=>{
+            const isActive = filter === name;
+            const clazz = isActive ? 'btn-info' : 'btn-outline-secondary';
             return (
                 <button type="button" 
-                        className ="btn btn-info"
+                        className ={`btn ${clazz}`}
                         key={name}>
                   {label}
                 </button>
