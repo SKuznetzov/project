@@ -1,15 +1,27 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './item-filter.css';
-const ItemFilter = ()=>{
+class ItemFilter extends Component{
+  buttons = [
+          {name: 'all',label: 'All'},
+          {name: 'active',label: 'Active'},
+          {name: 'done',label: 'Done'}
+
+  ];
+  render(){
+    const buttons = this.buttons.map(({name,label})=>{
+            return (
+                <button type="button" 
+                        className ="btn btn-info"
+                        key={name}>
+                  {label}
+                </button>
+            )
+    })
   return (
     <div className="btn-group">
-        <button type="button" 
-                className ="btn btn-info">All</button>
-        <button type="button" 
-                className ="btn btn-outline-secondary">Active</button>
-        <button type="button" 
-                className ="btn btn-outline-secondary">Done</button>
+       {buttons}
     </div>
   );
+  }
 };
 export default ItemFilter;
