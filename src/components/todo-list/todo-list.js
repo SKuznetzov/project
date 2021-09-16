@@ -20,7 +20,7 @@ class TodoList extends Component{
                                 onToggleDone={()=>onToggleDone(id)}
                                 >{item}</TodoListItem>
          })
-     };
+     }
     </ul>)
   }
 }
